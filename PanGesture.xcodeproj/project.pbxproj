@@ -15,6 +15,8 @@
 		E2747C3C1C8805EB0096B2F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2747C3A1C8805EB0096B2F3 /* LaunchScreen.storyboard */; };
 		E2747C471C8805EB0096B2F3 /* PanGestureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2747C461C8805EB0096B2F3 /* PanGestureTests.m */; };
 		E2747C521C8805EB0096B2F3 /* PanGestureUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2747C511C8805EB0096B2F3 /* PanGestureUITests.m */; };
+		E2747C611C88064A0096B2F3 /* SignatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2747C601C88064A0096B2F3 /* SignatureView.m */; };
+		E2747C641C880F4E0096B2F3 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2747C631C880F4E0096B2F3 /* SecondViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,10 @@
 		E2747C4D1C8805EB0096B2F3 /* PanGestureUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PanGestureUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2747C511C8805EB0096B2F3 /* PanGestureUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PanGestureUITests.m; sourceTree = "<group>"; };
 		E2747C531C8805EB0096B2F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E2747C5F1C88064A0096B2F3 /* SignatureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignatureView.h; sourceTree = "<group>"; };
+		E2747C601C88064A0096B2F3 /* SignatureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignatureView.m; sourceTree = "<group>"; };
+		E2747C621C880F4E0096B2F3 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		E2747C631C880F4E0096B2F3 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +111,10 @@
 				E2747C301C8805EB0096B2F3 /* AppDelegate.m */,
 				E2747C321C8805EB0096B2F3 /* ViewController.h */,
 				E2747C331C8805EB0096B2F3 /* ViewController.m */,
+				E2747C621C880F4E0096B2F3 /* SecondViewController.h */,
+				E2747C631C880F4E0096B2F3 /* SecondViewController.m */,
+				E2747C5F1C88064A0096B2F3 /* SignatureView.h */,
+				E2747C601C88064A0096B2F3 /* SignatureView.m */,
 				E2747C351C8805EB0096B2F3 /* Main.storyboard */,
 				E2747C381C8805EB0096B2F3 /* Assets.xcassets */,
 				E2747C3A1C8805EB0096B2F3 /* LaunchScreen.storyboard */,
@@ -273,9 +283,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2747C641C880F4E0096B2F3 /* SecondViewController.m in Sources */,
 				E2747C341C8805EB0096B2F3 /* ViewController.m in Sources */,
 				E2747C311C8805EB0096B2F3 /* AppDelegate.m in Sources */,
 				E2747C2E1C8805EB0096B2F3 /* main.m in Sources */,
+				E2747C611C88064A0096B2F3 /* SignatureView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
