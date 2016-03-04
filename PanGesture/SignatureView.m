@@ -12,16 +12,8 @@
 @interface SignatureView ()
 
 @property (nonatomic, strong) UIBezierPath *path;
-@property (nonatomic, assign) CGPoint previousPoint;
 
 @end
-
-static CGPoint midpoint(CGPoint p1, CGPoint p2) {
-    return (CGPoint) {
-        (p1.x + p2.x) / 2.0,
-        (p1.y + p2.y) / 2.0
-    };
-}
 
 @implementation SignatureView
 
@@ -29,33 +21,37 @@ static CGPoint midpoint(CGPoint p1, CGPoint p2) {
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [UIColor whiteColor];
-        self.path = [UIBezierPath bezierPath];
-        UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
-        pan.maximumNumberOfTouches = 1;
-        pan.minimumNumberOfTouches = 1;
-        [self addGestureRecognizer:pan];
+        self.path = [[UIBezierPath alloc] init];
+        
+        CAShapeLayer *shareLayer = (CAShapeLayer *)self.layer;
+        shareLayer.strokeColor = [UIColor blackColor].CGColor;
+        shareLayer.fillColor = [UIColor clearColor].CGColor;
+        shareLayer.lineCap = kCALineCapRound;
+        shareLayer.lineJoin = kCALineJoinRound;
+        shareLayer.lineWidth = 5;
+        
     }
     return self;
 }
 
-- (void)pan:(UIPanGestureRecognizer *)pan {
-    CGPoint current = [pan locationInView:self];
-    CGPoint midPoint = midpoint(self.previousPoint, current);
-    
-    if (pan.state == UIGestureRecognizerStateBegan) {
-        [self.path moveToPoint:current];
-    } else if (pan.state == UIGestureRecognizerStateChanged) {
-//        [self.path addLineToPoint:current];
-        [self.path addQuadCurveToPoint:midPoint controlPoint:self.previousPoint];
-    }
-    self.previousPoint = current;
-    [self setNeedsDisplay];
++ (Class)layerClass {
+    return [CAShapeLayer class];
 }
 
-- (void)drawRect:(CGRect)rect {
-    [[UIColor blackColor] setStroke];
-    [self.path stroke];
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [super touchesBegan:touches withEvent:event];
+    CGPoint point = [[touches anyObject] locationInView:self];
+    [self.path moveToPoint:point];
 }
+
+- (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [super touchesMoved:touches withEvent:event];
+    CGPoint point = [[touches anyObject] locationInView:self];
+    [self.path addLineToPoint:point];
+    
+    ((CAShapeLayer *)self.layer).path = self.path.CGPath;
+    
+}
+
 
 @end
